@@ -7,57 +7,57 @@ $test: #fff;
   color: $test;
 }
 
-.test {
-  position: relative;
-  height: 10000px;
+.test-wrap {
+  width: 100%;
+  padding: 30px;
 }
 
-.scroll-text {
-  position: absolute;
-  color: #000;
-
-  &_one {
-    top: 200px;
-    left: 200px;
-  }
-
-  &_two {
-    top: 1000px;
-    left: 200px;
-  }
-
-  &_three {
-    top: 1800px;
-    left: 100px;
-  }
-
-  &_fore {
-    top: 2700px;
-    left: 100px;
-  }
+.test-inner {
+  margin-bottom: 100px;
 }
 
-.text-splite-wrap {
-  display: inline-block;
-  font-size: 2.8rem;
+.test-image-wrap {
+  width: 400px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s $easeOutExpo;
   overflow: hidden;
-}
 
-.text-splite {
-  width: auto;
-  transform: translate3d(1em, 0, 0);
-  display: inline-block;
-  transition: transform 0.6s ease-in-out;
+  &.display {
+    transform: scaleX(1);
 
-  &.isActive {
-    transform: translate3d(0, 0, 0);
+    .test-image {
+      &::before {
+        transform: translateX(120%) skewX(20deg);
+      }
+    }
   }
 }
 
-.gl {
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  position: absolute;
+.test-image {
+  width: 100%;
+  padding-top: 66.6%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &::before {
+    content: '';
+    top: 0;
+    left: -50px;
+    width: 130%;
+    height: 100%;
+    background-color: #ccc;
+    z-index: 1;
+    position: absolute;
+    transition: transform 0.6s 0.6s $easeOutExpo;
+    transform-origin: left;
+    transform: skewX(20deg);
+  }
+}
+
+.test-button {
+  padding: 20px 40px;
+  background-color: rgba($color: #000, $alpha: 0.3);
 }
